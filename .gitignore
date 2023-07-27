@@ -33,3 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# firebase
+/next-js-test-1-7d4a3-firebase-adminsdk-ale0m-90ecdf1d73.json

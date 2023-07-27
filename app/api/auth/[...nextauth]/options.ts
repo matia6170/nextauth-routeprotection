@@ -1,14 +1,24 @@
 import type { NextAuthOptions } from "next-auth";
 
 import GitHubProvider from "next-auth/providers/github";
+import KakaoProvider from "next-auth/providers/kakao";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { FirestoreAdapter } from "@auth/firebase-adapter";
+import { firestore } from "../lib/firebase";
 
 export const options: NextAuthOptions = {
+  // @ts-ignore
+  adapter: FirestoreAdapter(firestore),
+  
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
+    /*  KakaoProvider({
+    clientId: process.env.KAKAO_CLIENT_ID as string,
+    clientSecret: process.env.KAKAO_CLIENT_SECRET as string
+  }), */
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -37,4 +47,5 @@ export const options: NextAuthOptions = {
       },
     }),
   ],
+  
 };

@@ -33,7 +33,7 @@ export default function NavBar(): React.ReactNode {
         Login
       </Link>
       <Link
-        href="/api/auth/signout"
+        href="/api/auth/logout"
         className="p-2 transition duration-300 hover:bg-blue-600 "
       >
         LogOut
